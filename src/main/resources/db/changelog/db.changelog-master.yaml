@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1.0.1"
+      author: "vshorobura"
+      changes:
+        - createSequence:
+            sequenceName: "seq_posts"
+        - createTable:
+            tableName: "posts"
+            columns:
+              - column:
+                  name: "id"
+                  type: "bigint"
+                  constraints:
+                    primaryKey: true
+                  defaultValueSequenceNext: "seq_posts"
+              - column:
+                  name: "content"
+                  type: "text"
+              - column:
+                  name: "created"
+                  type: "date"
+              - column:
+                  name: "last_update"
+                  type: "date"
