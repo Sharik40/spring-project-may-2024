@@ -1,4 +1,9 @@
 package org.spring.cp.springprojectmay2024.dto;
 
-public class ErrorDTO {
+import lombok.Builder;
+
+import java.time.OffsetDateTime;
+
+@Builder
+public record ErrorDTO(String message, OffsetDateTime time) {
 }

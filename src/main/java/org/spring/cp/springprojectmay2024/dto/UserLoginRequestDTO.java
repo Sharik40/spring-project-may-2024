@@ -1,4 +1,11 @@
 package org.spring.cp.springprojectmay2024.dto;
 
-public class UserLoginRequestDTO {
+import lombok.Builder;
+
+@Builder
+public record UserLoginRequestDTO(
+        String username,
+        String password
+) {
+
 }

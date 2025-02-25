@@ -1,1 +1,44 @@
-spring.application.name=spring-project-may-2024
+spring:
+  application:
+    name: SPRING PROJECT MAY 2024
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/spring-project"
+    username: "postgres"
+    password: "admin"
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  #logging:
+  #  level:
+  #    root: DEBUG
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+#  data:
+#    mongodb:
+#      uri: "mongodb+srv://vshorobura:admin@cluster0.zxqcm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+#      database: "mongodb"
+  #  zxcp hhjk gips zgfb
+
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: "sharik201620152014@gmail.com"
+#    password: "zxcphhjkgipszgfb"
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#            required: true
+jwt:
+  secret: your-super-secret-key-that-is-long-enough-to-be-secure-256-bits
+  access-token:
+    ttl-millis: 60000000
+  refresh-token:
+    ttl-millis: 120000

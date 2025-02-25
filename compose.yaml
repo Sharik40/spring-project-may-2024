@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  pg:
+    image: postgres:latest
+    container_name: pg-local-spring-project
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: "spring-project"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data/
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-local-spring-project
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres@postgres.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    volumes:
+      - ./pgadmin_data:/var/lib/pgadmin/
+
+volumes:
+  pg_data:
+  pgadmin_data:
