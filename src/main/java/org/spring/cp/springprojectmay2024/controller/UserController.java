@@ -2,6 +2,7 @@ package org.spring.cp.springprojectmay2024.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.spring.cp.springprojectmay2024.dto.UserDTO;
+import org.spring.cp.springprojectmay2024.dto.UserResponceDTO;
 import org.spring.cp.springprojectmay2024.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -24,12 +25,12 @@ public class UserController {
 
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<UserDTO> getUser(@PathVariable String email) {
+    public ResponseEntity<UserResponceDTO> getUser(@PathVariable String email) {
         return ResponseEntity.ok(userService.findByEmail(email));
     }
 
     @GetMapping("/user/{username}")
-    public ResponseEntity<UserDTO> getUserByUsername(@PathVariable String username) {
+    public ResponseEntity<UserResponceDTO> getUserByUsername(@PathVariable String username) {
         return ResponseEntity.ok(userService.findByUsername(username));
     }
 

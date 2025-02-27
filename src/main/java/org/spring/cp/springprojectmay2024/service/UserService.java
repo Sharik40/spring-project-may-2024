@@ -3,6 +3,7 @@ package org.spring.cp.springprojectmay2024.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.spring.cp.springprojectmay2024.dto.UserDTO;
+import org.spring.cp.springprojectmay2024.dto.UserResponceDTO;
 import org.spring.cp.springprojectmay2024.entity.User;
 import org.spring.cp.springprojectmay2024.error.UsernameAlreadyExistsException;
 import org.spring.cp.springprojectmay2024.mapper.UserMapper;
@@ -31,8 +32,8 @@ public class UserService implements UserDetailsService {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    public UserDTO findByUsername(String username) {
-        return userMapper.userToUserDTO(userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found")));
+    public UserResponceDTO findByUsername(String username) {
+        return userMapper.userToUserResponceDTO(userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found")));
     }
 
     public List<UserDTO> findAll() {
@@ -42,8 +43,8 @@ public class UserService implements UserDetailsService {
                 .collect(Collectors.toList());
     }
 
-    public UserDTO findByEmail(String email) {
-        return userMapper.userToUserDTO(userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found")));
+    public UserResponceDTO findByEmail(String email) {
+        return userMapper.userToUserResponceDTO(userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found")));
     }
 
     public List<UserDTO> filterUsers(String username, String email) {
